@@ -1,0 +1,35 @@
+Table
+
+- User
+	- nric
+	- pwd
+	- name
+	- age
+	- dob
+	- gender
+	- email
+	- hp
+	- notification (bool)
+	
+- UserEvent
+	- nric
+	- eventid
+
+- Event
+	- id
+	- name
+	- desc
+	- locationid
+
+- Location
+	- x
+	- y
+	
+	
+Event Location Buffer - Buffering
+Routing Service - Route
+Event for the disabled - Clustering
+Social Media - Checkin
+Crowd-sourcing - Add event to user
+Path Routing - Route
+Weather Forecast - Weather
