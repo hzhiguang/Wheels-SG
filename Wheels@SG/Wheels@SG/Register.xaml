@@ -27,25 +27,27 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Text="Username" />
-            <TextBox x:Name="tbUser"/>
-            <TextBlock Text="Password"/>
-            <PasswordBox x:Name="pbPwd"/>
-            <TextBlock Text="Name" />
-            <TextBox x:Name="tbName"/>
-            <TextBlock Text="Age" />
-            <TextBox x:Name="tbAge"/>
-            <TextBlock Text="Date of Birth" />
-            <TextBox x:Name="tbDob"/>
-            <TextBlock Text="Gender" />
-            <TextBox x:Name="tbGender"/>
-            <TextBlock Text="Email" />
-            <TextBox x:Name="tbEmail"/>
-            <TextBlock Text="Mobile Phone" />
-            <TextBox x:Name="tbMobile"/>
-            <Button x:Name="btnRegister" Content="Register"/>
-        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="12,0,12,0">
+            <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <TextBlock Text="Username" />
+                <TextBox x:Name="tbUser"/>
+                <TextBlock Text="Password"/>
+                <PasswordBox x:Name="pbPwd"/>
+                <TextBlock Text="Name" />
+                <TextBox x:Name="tbName"/>
+                <TextBlock Text="Age" />
+                <TextBox x:Name="tbAge"/>
+                <TextBlock Text="Date of Birth" />
+                <TextBox x:Name="tbDob"/>
+                <TextBlock Text="Gender" />
+                <TextBox x:Name="tbGender"/>
+                <TextBlock Text="Email" />
+                <TextBox x:Name="tbEmail"/>
+                <TextBlock Text="Mobile Phone" />
+                <TextBox x:Name="tbMobile"/>
+                <Button x:Name="btnRegister" Content="Register" Click="btnRegister_Click" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->
