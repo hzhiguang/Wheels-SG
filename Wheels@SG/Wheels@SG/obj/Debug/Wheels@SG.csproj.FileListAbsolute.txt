@@ -130,3 +130,4 @@ C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\ru-RU\Microso
 C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.csprojResolveAssemblyReference.cache
