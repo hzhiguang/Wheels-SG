@@ -1,8 +1,8 @@
-﻿<xapCache source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\Wheels_SG.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="11/18/2013 7:34:24 PM">
+﻿<xapCache source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\Wheels_SG.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="1/8/2014 10:02:19 PM">
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="11/9/2013 11:11:18 AM" />
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Background.png" archivePath="Background.png" lastWriteTime="11/9/2013 10:31:39 AM" />
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="11/9/2013 10:31:39 AM" />
-  <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.dll" archivePath="Wheels@SG.dll" lastWriteTime="11/18/2013 7:34:22 PM" />
+  <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.dll" archivePath="Wheels@SG.dll" lastWriteTime="1/8/2014 10:02:18 PM" />
   <file source="C:\Program Files (x86)\ESRI SDKs\WindowsPhone71\v10.1.1\ESRI.ArcGIS.Client.Bing.dll" archivePath="ESRI.ArcGIS.Client.Bing.dll" lastWriteTime="12/20/2012 6:43:44 PM" />
   <file source="C:\Program Files (x86)\ESRI SDKs\WindowsPhone71\v10.1.1\ESRI.ArcGIS.Client.dll" archivePath="ESRI.ArcGIS.Client.dll" lastWriteTime="12/20/2012 6:43:34 PM" />
   <file source="C:\Program Files (x86)\ESRI SDKs\WindowsPhone71\v10.1.1\ESRI.ArcGIS.Client.Toolkit.DataSources.dll" archivePath="ESRI.ArcGIS.Client.Toolkit.DataSources.dll" lastWriteTime="12/20/2012 6:43:54 PM" />
@@ -11,7 +11,7 @@
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="3/19/2012 4:29:06 PM" />
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="11/9/2013 11:26:27 AM" />
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="11/9/2013 10:31:39 AM" />
-  <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="11/9/2013 11:27:27 AM" />
+  <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="1/8/2014 9:28:42 PM" />
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="11/9/2013 10:31:39 AM" />
   <file source="C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="11/9/2013 10:31:39 AM" />
 </xapCache>
