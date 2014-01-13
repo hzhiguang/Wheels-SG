@@ -31,14 +31,6 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
-    [Route("/json/userEvent/{nric}")]
-    public class GetUserEventDetails
-    {
-        [DataMember]
-        public string nric { get; set; }
-    }
-
-    [DataContract]
     public class UserEventResult : IHasResponseStatus
     {
         public UserEventResult()
@@ -57,21 +49,6 @@ namespace WebService.ServiceModel.Operations
     public class CreateUserEventResult : IHasResponseStatus
     {
         public CreateUserEventResult()
-        {
-            this.UserEvent = UserEvent;
-        }
-
-        [DataMember]
-        public UserEvent UserEvent { get; set; }
-
-        [DataMember]
-        public ResponseStatus ResponseStatus { get; set; }
-    }
-
-    [DataContract]
-    public class UserEventDetailsResult : IHasResponseStatus
-    {
-        public UserEventDetailsResult()
         {
             this.UserEvent = UserEvent;
         }

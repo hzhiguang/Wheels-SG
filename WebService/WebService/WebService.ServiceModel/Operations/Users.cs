@@ -54,7 +54,7 @@ namespace WebService.ServiceModel.Operations
 
     [DataContract]
     [Route("/json/user/{nric}")]
-    public class GetAnalysisDetails
+    public class GetUserDetails
     {
         [DataMember]
         public string nric { get; set; }
@@ -65,11 +65,11 @@ namespace WebService.ServiceModel.Operations
     {
         public UserResult()
         {
-            this.Users = new List<Users>();
+            this.User = new List<User>();
         }
 
         [DataMember]
-        public List<Users> Users { get; set; }
+        public List<User> User { get; set; }
 
         [DataMember]
         public ResponseStatus ResponseStatus { get; set; }
@@ -80,11 +80,11 @@ namespace WebService.ServiceModel.Operations
     {
         public CreateUserResult()
         {
-            this.Users = Users;
+            this.User = User;
         }
 
         [DataMember]
-        public Users Users { get; set; }
+        public User User { get; set; }
 
         [DataMember]
         public ResponseStatus ResponseStatus { get; set; }
@@ -95,11 +95,26 @@ namespace WebService.ServiceModel.Operations
     {
         public UserDetailsResult()
         {
-            this.Users = Users;
+            this.User = User;
         }
 
         [DataMember]
-        public Users Users { get; set; }
+        public User User { get; set; }
+
+        [DataMember]
+        public ResponseStatus ResponseStatus { get; set; }
+    }
+
+    [DataContract]
+    public class UpdateUserResult : IHasResponseStatus
+    {
+        public UpdateUserResult()
+        {
+            this.User = User;
+        }
+
+        [DataMember]
+        public User User { get; set; }
 
         [DataMember]
         public ResponseStatus ResponseStatus { get; set; }

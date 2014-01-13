@@ -20,7 +20,7 @@ namespace WebService.ServiceInterface
         //Insert 1 event object
         public CreateEventResult Post(CreateEvent request)
         {
-            Db.ExecuteSql("INSERT INTO event (id, eventname, description, locationid) VALUES ('" + request.id + "', '" + request.eventname + "', '" + request.description + "', '" + request.description + "', '" + request.locationid + "')");
+            Db.ExecuteSql("INSERT INTO event (eventname, description, locationid) VALUES ('" + request.eventname + "', '" + request.description + "', '" + request.description + "', '" + request.locationid + "')");
             long id = Db.GetLastInsertId();
             Event e = Db.GetByIdOrDefault<Event>(id);
             if (e == null)
@@ -39,6 +39,19 @@ namespace WebService.ServiceInterface
                 throw new HttpError(HttpStatusCode.NotFound, new ArgumentException("Event does not exist: " + request.id));
             }
             return new EventDetailsResult { Event = eve };
+        }
+
+        //Update 1 event object
+        public UpdateEventResult Post(CreateEvent request)
+        {
+            Db.ExecuteSql("UPDATE event SET eventname='" + request.eventname + "', description='" + request.description + "', locationid='" + request.locationid + "' WHERE id='" + request.id + "'");
+            long id = Db.GetLastInsertId();
+            Event e = Db.GetByIdOrDefault<Event>(id);
+            if (e == null)
+            {
+                throw new HttpError(HttpStatusCode.NotFound, new ArgumentException("Event does not exist: " + id.ToString()));
+            }
+            return new UpdateEventResult { Event = e };
         }
     }
 }

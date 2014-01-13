@@ -38,7 +38,7 @@ namespace WebService.ServiceModel.Operations
 
     [DataContract]
     [Route("/json/location/{id}")]
-    public class GetAnalysisDetails
+    public class GetLocationDetails
     {
         [DataMember]
         public int id { get; set; }
@@ -49,11 +49,11 @@ namespace WebService.ServiceModel.Operations
     {
         public LocationResult()
         {
-            this.Locations = new List<Location>();
+            this.Location = new List<Location>();
         }
 
         [DataMember]
-        public List<Location> Locations { get; set; }
+        public List<Location> Location { get; set; }
 
         [DataMember]
         public ResponseStatus ResponseStatus { get; set; }
@@ -78,6 +78,21 @@ namespace WebService.ServiceModel.Operations
     public class LocationDetailsResult : IHasResponseStatus
     {
         public LocationDetailsResult()
+        {
+            this.Location = Location;
+        }
+
+        [DataMember]
+        public Location Location { get; set; }
+
+        [DataMember]
+        public ResponseStatus ResponseStatus { get; set; }
+    }
+
+    [DataContract]
+    public class UpdateLocationResult : IHasResponseStatus
+    {
+        public UpdateLocationResult()
         {
             this.Location = Location;
         }

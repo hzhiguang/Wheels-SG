@@ -88,4 +88,19 @@ namespace WebService.ServiceModel.Operations
         [DataMember]
         public ResponseStatus ResponseStatus { get; set; }
     }
+
+    [DataContract]
+    public class UpdateEventResult : IHasResponseStatus
+    {
+        public UpdateEventResult()
+        {
+            this.Event = Event;
+        }
+
+        [DataMember]
+        public Event Event { get; set; }
+
+        [DataMember]
+        public ResponseStatus ResponseStatus { get; set; }
+    }
 }
