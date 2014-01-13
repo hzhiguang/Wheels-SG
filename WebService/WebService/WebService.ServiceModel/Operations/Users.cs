@@ -61,6 +61,43 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
+    [Route("/json/updateUser", "POST")]
+    public class UpdateUser
+    {
+        [DataMember]
+        public string nric { get; set; }
+        [DataMember]
+        public string pwd { get; set; }
+        [DataMember]
+        public string fullname { get; set; }
+        [DataMember]
+        public int age { get; set; }
+        [DataMember]
+        public DateTime dob { get; set; }
+        [DataMember]
+        public string gender { get; set; }
+        [DataMember]
+        public string email { get; set; }
+        [DataMember]
+        public int hp { get; set; }
+        [DataMember]
+        public bool notification { get; set; }
+
+        public UpdateUser(string nric, string pwd, string fullname, int age, DateTime dob, string gender, string email, int hp, bool notification)
+        {
+            this.nric = nric;
+            this.pwd = pwd;
+            this.fullname = fullname;
+            this.age = age;
+            this.dob = dob;
+            this.gender = gender;
+            this.email = email;
+            this.hp = hp;
+            this.notification = notification;
+        }
+    }
+
+    [DataContract]
     public class UserResult : IHasResponseStatus
     {
         public UserResult()

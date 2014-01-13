@@ -45,6 +45,27 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
+    [Route("/json/updateLocation", "POST")]
+    public class UpdateLocation
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public string address { get; set; }
+        [DataMember]
+        public double x { get; set; }
+        [DataMember]
+        public double y { get; set; }
+
+        public UpdateLocation(string address, double x, double y)
+        {
+            this.address = address;
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    [DataContract]
     public class LocationResult : IHasResponseStatus
     {
         public LocationResult()

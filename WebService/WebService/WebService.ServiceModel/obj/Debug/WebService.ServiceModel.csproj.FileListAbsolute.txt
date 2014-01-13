@@ -15,4 +15,3 @@ C:\Users\hzhig_000\Desktop\Wheels-SG\WebService\WebService\WebService.ServiceMod
 C:\Users\hzhig_000\Desktop\Wheels-SG\WebService\WebService\WebService.ServiceModel\bin\Debug\ServiceStack.Redis.dll
 C:\Users\hzhig_000\Desktop\Wheels-SG\WebService\WebService\WebService.ServiceModel\bin\Debug\ServiceStack.ServiceInterface.dll
 C:\Users\hzhig_000\Desktop\Wheels-SG\WebService\WebService\WebService.ServiceModel\bin\Debug\ServiceStack.Redis.xml
-C:\Users\hzhig_000\Desktop\Wheels-SG\WebService\WebService\WebService.ServiceModel\obj\Debug\WebService.ServiceModel.csprojResolveAssemblyReference.cache

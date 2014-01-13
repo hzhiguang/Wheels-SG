@@ -42,7 +42,7 @@ namespace WebService.ServiceInterface
         }
 
         //Update 1 event object
-        public UpdateEventResult Post(CreateEvent request)
+        public UpdateEventResult Post(UpdateEvent request)
         {
             Db.ExecuteSql("UPDATE event SET eventname='" + request.eventname + "', description='" + request.description + "', locationid='" + request.locationid + "' WHERE id='" + request.id + "'");
             long id = Db.GetLastInsertId();

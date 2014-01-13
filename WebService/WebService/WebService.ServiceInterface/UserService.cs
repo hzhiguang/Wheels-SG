@@ -41,7 +41,7 @@ namespace WebService.ServiceInterface
         }
 
         //Insert 1 user object
-        public UpdateUserResult Post(CreateUser request)
+        public UpdateUserResult Post(UpdateUser request)
         {
             Db.ExecuteSql("UPDATE user SET pwd='" + request.pwd + "', fullname='" + request.fullname + "', age='" + request.age + "', dob='" + request.dob + "', gender='" + request.gender + "', email='" + request.email + "', hp='" + request.hp + "', notification='" + request.notification + "' WHERE nric='" + request.nric + "'");
             User e = Db.GetByIdOrDefault<User>(request.nric);

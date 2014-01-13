@@ -44,7 +44,7 @@ namespace WebService.ServiceInterface
         }
 
         //Update 1 location object
-        public UpdateLocationResult Post(CreateLocation request)
+        public UpdateLocationResult Post(UpdateLocation request)
         {
             Db.ExecuteSql("UPDATE location SET address='" + request.address + "', x='" + request.x + "', y='" + request.y + "', geom=ST_GeomFromText('POINT(" + request.x + " " + request.y + ")', 3414) WHERE id='" + request.id + "'");
             long id = Db.GetLastInsertId();

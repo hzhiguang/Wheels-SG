@@ -45,6 +45,27 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
+    [Route("/json/updateEvent", "POST")]
+    public class UpdateEvent
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public string eventname { get; set; }
+        [DataMember]
+        public string description { get; set; }
+        [DataMember]
+        public int locationid { get; set; }
+
+        public UpdateEvent(string eventname, string description, int locationid)
+        {
+            this.eventname = eventname;
+            this.description = description;
+            this.locationid = locationid;
+        }
+    }
+
+    [DataContract]
     public class EventResult : IHasResponseStatus
     {
         public EventResult()
