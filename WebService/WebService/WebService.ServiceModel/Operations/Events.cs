@@ -38,7 +38,7 @@ namespace WebService.ServiceModel.Operations
 
     [DataContract]
     [Route("/json/event/{id}")]
-    public class GetAnalysisDetails
+    public class GetEventDetails
     {
         [DataMember]
         public int id { get; set; }

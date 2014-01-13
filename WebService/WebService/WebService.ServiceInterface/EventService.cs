@@ -31,7 +31,7 @@ namespace WebService.ServiceInterface
         }
 
         //Retrieve 1 event object by id
-        public EventDetailsResult Get(GetAnalysisDetails request)
+        public EventDetailsResult Get(GetEventDetails request)
         {
             var eve = Db.GetByIdOrDefault<Event>(request.id);
             if (eve == null)
