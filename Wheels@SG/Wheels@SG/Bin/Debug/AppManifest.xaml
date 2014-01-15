@@ -6,6 +6,8 @@
     <AssemblyPart x:Name="ESRI.ArcGIS.Client.Toolkit.DataSources" Source="ESRI.ArcGIS.Client.Toolkit.DataSources.dll" />
     <AssemblyPart x:Name="ESRI.ArcGIS.Client.Toolkit" Source="ESRI.ArcGIS.Client.Toolkit.dll" />
     <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
+    <AssemblyPart x:Name="RestSharp.WindowsPhone" Source="RestSharp.WindowsPhone.dll" />
     <AssemblyPart x:Name="Microsoft.Phone.Controls" Source="Microsoft.Phone.Controls.dll" />
   </Deployment.Parts>
 </Deployment>

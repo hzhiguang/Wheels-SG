@@ -57,6 +57,12 @@
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -77,6 +83,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserEvent.cs" />
+    <Compile Include="Model\WheelsApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
