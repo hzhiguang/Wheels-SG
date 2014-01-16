@@ -32,10 +32,10 @@ namespace Wheels_SG
         public AppPage()
         {
             InitializeComponent();
-            if (settings.Contains("userFlag"))
-            {
-                User user = (User)settings["userFlag"];
-            }
+            //if (settings.Contains("userFlag"))
+            //{
+            //    User user = (User)settings["userFlag"];
+            //}
             InitWatcher();
         }
 
@@ -107,7 +107,23 @@ namespace Wheels_SG
 
         private void GraphicsLayer_MouseLeftButtonDown(object sender, ESRI.ArcGIS.Client.GraphicMouseButtonEventArgs e)
         {
-
+            //LatLng input = currentLocation;
+            //MapPoint map = new MapPoint();
+            //api.convertLatLng(input, mappoint =>
+            //{
+            //    map = mappoint;
+            //    MapPoint click = esriMap.ScreenToMap(e.GetPosition(esriMap));
+            //    double x = click.X;
+            //    double minX = x - 300;
+            //    double maxX = x + 300;
+            //    double y = click.Y;
+            //    if ((map.X < maxX) && (map.X > minX))
+            //    {
+            //        MyInfoWindow.Anchor = map;
+            //        //MyInfoWindow.Content = showtime.theater.name;
+            //        MyInfoWindow.IsOpen = true;
+            //    }
+            //});
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -117,6 +133,45 @@ namespace Wheels_SG
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             esriMap.Zoom(0.5);
+        }
+
+        private void event_Click(object sender, EventArgs e)
+        {
+            createEvent.IsOpen = true;
+            createEvent.Visibility = Visibility.Visible;
+            createEvent.VerticalOffset = -550;
+        }
+
+        private void event_Opened(object sender, EventArgs e)
+        {
+            //if (isNear == false)
+            //{
+            //    createEvent.IsOpen = false;
+            //}
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            Event eve = new Event();
+            eve.eventname = tbEventName.Text.ToString();
+            eve.description = tbDescription.Text.ToString();
+            Wheels_SG.Model.Location loc = new Wheels_SG.Model.Location();
+            loc.address = tbAddress.Text.ToString();
+            loc.x = currentLocation.lat;
+            loc.y = currentLocation.lng;
+            api.CreateLocation(loc, (List<Wheels_SG.Model.Location> locs) =>
+            {
+                eve.locationid = locs.ElementAt(0).id;
+                api.CreateEvent(eve, (List<Event> eves) =>
+                {
+                    MessageBox.Show("Event Successfully Created");
+                });
+            });
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            createEvent.IsOpen = false;
         }
     }
 }

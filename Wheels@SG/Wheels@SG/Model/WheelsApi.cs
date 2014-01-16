@@ -68,6 +68,24 @@ namespace Wheels_SG.Model
             return ExecuteAync<List<User>>(request, callback);
         }
 
+        public RestRequestAsyncHandle CreateLocation(Location loc, Action<List<Location>> callback)
+        {
+            var request = new RestRequest("api/json/createLocation", Method.POST);
+            request.AddParameter("address", loc.address);
+            request.AddParameter("x", loc.x);
+            request.AddParameter("y", loc.y);
+            return ExecuteAync<List<Location>>(request, callback);
+        }
+
+        public RestRequestAsyncHandle CreateEvent(Event eve, Action<List<Event>> callback)
+        {
+            var request = new RestRequest("api/json/createEvent", Method.POST);
+            request.AddParameter("eventname", eve.eventname);
+            request.AddParameter("description", eve.description);
+            request.AddParameter("locationid", eve.locationid);
+            return ExecuteAync<List<Event>>(request, callback);
+        }
+
         public RestRequestAsyncHandle convertLatLng(LatLng latlng, Action<MapPoint> callback)
         {
             RestClient client = new RestClient();

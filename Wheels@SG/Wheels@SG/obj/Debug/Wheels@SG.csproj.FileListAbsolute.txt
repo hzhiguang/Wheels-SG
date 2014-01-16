@@ -269,3 +269,4 @@ C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.g.r
 C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.dll
 C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.pdb
 C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\XapCacheFile.xml
+C:\Users\hzhig_000\Desktop\Wheels-SG\Wheels@SG\Wheels@SG\obj\Debug\Wheels@SG.csprojResolveAssemblyReference.cache
