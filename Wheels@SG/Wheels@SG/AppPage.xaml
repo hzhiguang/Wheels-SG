@@ -25,6 +25,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.Resources>
+            <esriSymbols:PictureMarkerSymbol x:Key="DefaultMarkerSymbol" OffsetX="11" OffsetY="39" Source="/Picture/pin.png" />
+            <esriSymbols:SimpleFillSymbol x:Key="DefaultBufferSymbol" Fill="#660000FF" BorderBrush="Blue" BorderThickness="2"  />
+        </Grid.Resources>
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
@@ -37,13 +41,14 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            
             <esri:Map x:Name="esriMap" Margin="0,0,0,85">
                 <esri:Map.Layers>
                     <esri:ArcGISTiledMapServiceLayer
                         ID="StreetMapLayer"
                         Url="http://www.onemap.sg/ArcGIS/rest/services/basemap/MapServer" />
                     <esriDS:GpsLayer x:Name="myGpsLayer" GeometryServiceUrl="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer" />
-                    <esri:GraphicsLayer ID="MyGraphicsLayer" />
+                    <esri:GraphicsLayer ID="MyGraphicsLayer" MouseLeftButtonDown="GraphicsLayer_MouseLeftButtonDown"/>
                 </esri:Map.Layers>
             </esri:Map>
             <Button Content="+" Height="72" HorizontalAlignment="Left" Margin="381,27,0,0" x:Name="button1" VerticalAlignment="Top" Width="69" Click="button1_Click" Background="#AD000000" />
