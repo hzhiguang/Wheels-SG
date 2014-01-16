@@ -37,7 +37,7 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <esri:Map x:Name="esriMap" Margin="0,0,0,85">
+            <esri:Map x:Name="esriMap" Margin="0,0,0,85" >
                 <esri:Map.Layers>
                     <esri:ArcGISTiledMapServiceLayer
                         ID="StreetMapLayer"

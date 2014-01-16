@@ -10,6 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using ESRI.ArcGIS.Client;
+using ESRI.ArcGIS.Client.Symbols;
+using ESRI.ArcGIS.Client.Geometry;
 
 namespace Wheels_SG
 {
@@ -24,6 +27,7 @@ namespace Wheels_SG
         {
             esriMap.Zoom(2);
         }
+
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             esriMap.Zoom(0.5);
