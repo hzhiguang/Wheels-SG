@@ -53,12 +53,35 @@
             </esri:Map>
             <Button Content="+" Height="72" HorizontalAlignment="Left" Margin="381,27,0,0" x:Name="button1" VerticalAlignment="Top" Width="69" Click="button1_Click" Background="#AD000000" />
             <Button Content="-" Height="72" HorizontalAlignment="Left" Margin="381,103,0,0" x:Name="button2" VerticalAlignment="Top" Width="69" Click="button2_Click" Background="#AD000000" />
+            <esriToolkit:InfoWindow x:Name="MyInfoWindow"
+                         Padding="2"
+                         CornerRadius="10"
+                         Background="#FF666666"
+                         Map="{Binding ElementName=esriMap}" />
+
+            <Popup x:Name="createEvent" Grid.Row="2" Opened="event_Opened" >
+                <Border BorderThickness="2" Margin="10" BorderBrush="{StaticResource PhoneAccentBrush}">
+                    <StackPanel Background="LightBlue">
+                        <TextBlock Text="Create Event" HorizontalAlignment="Center" FontSize="40"/>
+                        <TextBlock Text="Event Name" />
+                        <TextBox x:Name="tbEventName" />
+                        <TextBlock Text="Event Description" />
+                        <TextBox x:Name="tbDescription" />
+                        <TextBlock Text="Address" />
+                        <TextBox x:Name="tbAddress" />
+                        <StackPanel Orientation="Horizontal" Margin="0,10">
+                            <Button x:Name="btn_checkin" Content="Create Event" Width="215" Click="btn_create_Click"/>
+                            <Button x:Name="btn_cancel" Content="Cancel"   Width="215" Click="btn_cancel_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Popup>
         </Grid>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/ic_action_place.png" Text="Checkin" />
+            <shell:ApplicationBarIconButton IconUri="/Images/ic_action_place.png" Text="New Event" Click="event_Click" />
             <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="History" />
             <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Route" />
             <shell:ApplicationBar.MenuItems>

@@ -28,16 +28,17 @@ namespace Wheels_SG
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            api.Login(tbUser.Text.ToString(), pbPwd.Password.ToString(), (List<User> users) => { saveUser(users.ElementAt(0)); });
+            NavigationService.Navigate(new Uri("/AppPage.xaml", UriKind.Relative));
+            //api.Login(tbUser.Text.ToString(), pbPwd.Password.ToString(), (List<User> users) => { saveUser(users.ElementAt(0)); });
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (settings.Contains("userFlag"))
-            {
-                NavigationService.Navigate(new Uri("/AppPage.xaml", UriKind.Relative));
-            }
+            //if (settings.Contains("userFlag"))
+            //{
+            //    NavigationService.Navigate(new Uri("/AppPage.xaml", UriKind.Relative));
+            //}
         }
 
         private void saveUser(User user)
