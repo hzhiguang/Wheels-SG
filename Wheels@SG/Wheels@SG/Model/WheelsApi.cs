@@ -12,6 +12,7 @@ using RestSharp;
 using RestSharp.Deserializers;
 using ESRI.ArcGIS.Client.Geometry;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Wheels_SG.Model
 {
@@ -65,6 +66,16 @@ namespace Wheels_SG.Model
             //request.AddParameter("nric", username);
             //request.AddParameter("pwd", password);
             return ExecuteAync<List<User>>(request, callback);
+        }
+
+        public RestRequestAsyncHandle convertLatLng(LatLng latlng, Action<MapPoint> callback)
+        {
+            RestClient client = new RestClient();
+            client.BaseUrl = "http://tasks.arcgisonline.com";
+            var request = new RestRequest(Method.GET);
+            request.RequestFormat = DataFormat.Json;
+            request.Resource = String.Format("ArcGIS/rest/services/Geometry/GeometryServer/project?inSR=4326&outSR=3414&geometries={0}%2C{1}&f=pjson", latlng.lng, latlng.lat);
+            return client.ExecuteAsync(request, response => { JToken coords = JObject.Parse(response.Content)["geometries"].First; callback(new MapPoint((Convert.ToDouble(coords.SelectToken("x").ToString())), Convert.ToDouble(coords.SelectToken("y").ToString()))); });
         }
     }
 }
