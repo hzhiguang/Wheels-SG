@@ -65,6 +65,14 @@ namespace Wheels_SG
                 graphic.SetZIndex(1);
                 graphicsLayer.Graphics.Add(graphic);
             });
+
+            api.RetrieveNearbyEvents(e.Position.Location.Latitude, e.Position.Location.Longitude, 0.01, (List<Event> events) =>
+            {
+                for (int i = 0; i < events.Count - 1; i++)
+                {
+                    
+                }
+            });
         }
 
         void geoWatcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
@@ -161,7 +169,11 @@ namespace Wheels_SG
             loc.y = currentLocation.lng;
             api.CreateLocation(loc, (List<Wheels_SG.Model.Location> locs) =>
             {
-                eve.locationid = locs.ElementAt(0).id;
+
+            });
+            api.RetrieveLocations((List<Model.Location> locations) =>
+            {
+                eve.locationid = locations.ElementAt(locations.Count - 1).id;
                 api.CreateEvent(eve, (List<Event> eves) =>
                 {
                     MessageBox.Show("Event Successfully Created");

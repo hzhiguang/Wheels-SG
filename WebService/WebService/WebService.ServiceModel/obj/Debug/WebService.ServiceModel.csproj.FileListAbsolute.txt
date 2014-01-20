@@ -30,6 +30,5 @@ C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceMod
 C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceModel\bin\Debug\ServiceStack.Interfaces.xml
 C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceModel\bin\Debug\ServiceStack.Redis.xml
 C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceModel\bin\Debug\ServiceStack.Text.xml
-C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceModel\obj\Debug\WebService.ServiceModel.csprojResolveAssemblyReference.cache
 C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceModel\obj\Debug\WebService.ServiceModel.dll
 C:\Users\Absolence\Desktop\Wheels@SG\WebService\WebService\WebService.ServiceModel\obj\Debug\WebService.ServiceModel.pdb

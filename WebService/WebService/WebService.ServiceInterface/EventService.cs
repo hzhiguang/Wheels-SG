@@ -18,15 +18,16 @@ namespace WebService.ServiceInterface
         }
 
         //Insert 1 event object
-        public CreateEventResult Post(CreateEvent request)
+        public CreateEventResult GET(CreateEvent request)
         {
-            Db.ExecuteSql("INSERT INTO event (eventname, description, locationid) VALUES ('" + request.eventname + "', '" + request.description + "', '" + request.description + "', '" + request.locationid + "')");
+            Db.ExecuteSql("INSERT INTO event (eventname, description, locationid) Values ('" + request.eventname + "','" + request.description + "','" + request.locationid + "')");
             long id = Db.GetLastInsertId();
             Event e = Db.GetByIdOrDefault<Event>(id);
             if (e == null)
             {
                 throw new HttpError(HttpStatusCode.NotFound, new ArgumentException("Event does not exist: " + id.ToString()));
             }
+
             return new CreateEventResult { Event = e };
         }
 
@@ -39,6 +40,12 @@ namespace WebService.ServiceInterface
                 throw new HttpError(HttpStatusCode.NotFound, new ArgumentException("Event does not exist: " + request.id));
             }
             return new EventDetailsResult { Event = eve };
+        }
+
+        //Retrieve events near
+        public EventNearResult Get(GetEventNear request)
+        {
+            return new EventNearResult { Event = Db.Query<Event>("SELECT * FROM event INNER JOIN location ON event.locationid = location.id WHERE ST_DWithin(geom, ST_GeomFromText('POINT(" + request.x + " " + request.y + ")', 3414), " + request.radius + ")") };
         }
 
         //Update 1 event object

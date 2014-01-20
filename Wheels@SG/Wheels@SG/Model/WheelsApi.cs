@@ -13,6 +13,7 @@ using RestSharp.Deserializers;
 using ESRI.ArcGIS.Client.Geometry;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Wheels_SG.Model
 {
@@ -70,20 +71,35 @@ namespace Wheels_SG.Model
 
         public RestRequestAsyncHandle CreateLocation(Location loc, Action<List<Location>> callback)
         {
-            var request = new RestRequest("api/json/createLocation", Method.POST);
+            var request = new RestRequest("api/json/createLocation", Method.GET);
             request.AddParameter("address", loc.address);
             request.AddParameter("x", loc.x);
             request.AddParameter("y", loc.y);
             return ExecuteAync<List<Location>>(request, callback);
         }
 
+        public RestRequestAsyncHandle RetrieveLocations(Action<List<Location>> callback)
+        {
+            var request = new RestRequest("api/json/location", Method.GET);
+            return Execute(request, (IRestResponse data) => { callback(JsonConvert.DeserializeObject<List<Location>>(JObject.Parse(data.Content)["Location"].ToString())); });
+        }
+
         public RestRequestAsyncHandle CreateEvent(Event eve, Action<List<Event>> callback)
         {
-            var request = new RestRequest("api/json/createEvent", Method.POST);
+            var request = new RestRequest("api/json/createEvent", Method.GET);
             request.AddParameter("eventname", eve.eventname);
             request.AddParameter("description", eve.description);
             request.AddParameter("locationid", eve.locationid);
             return ExecuteAync<List<Event>>(request, callback);
+        }
+
+        public RestRequestAsyncHandle RetrieveNearbyEvents(double x, double y, double rad, Action<List<Event>> callback)
+        {
+            var request = new RestRequest("api/json/event/near", Method.GET);
+            request.AddParameter("x", x);
+            request.AddParameter("y", y);
+            request.AddParameter("radius", rad);
+            return Execute(request, (IRestResponse data) => { callback(JsonConvert.DeserializeObject<List<Event>>(JObject.Parse(data.Content)["Event"].ToString())); });
         }
 
         public RestRequestAsyncHandle convertLatLng(LatLng latlng, Action<MapPoint> callback)

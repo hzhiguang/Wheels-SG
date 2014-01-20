@@ -16,7 +16,7 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
-    [Route("/json/createEvent", "POST")]
+    [Route("/json/createEvent", "GET")]
     public class CreateEvent
     {
         [DataMember]
@@ -42,6 +42,18 @@ namespace WebService.ServiceModel.Operations
     {
         [DataMember]
         public int id { get; set; }
+    }
+
+    [DataContract]
+    [Route("/json/event/near")]
+    public class GetEventNear
+    {
+        [DataMember]
+        public double x { get; set; }
+        [DataMember]
+        public double y { get; set; }
+        [DataMember]
+        public double radius { get; set; }
     }
 
     [DataContract]
@@ -105,6 +117,21 @@ namespace WebService.ServiceModel.Operations
 
         [DataMember]
         public Event Event { get; set; }
+
+        [DataMember]
+        public ResponseStatus ResponseStatus { get; set; }
+    }
+
+    [DataContract]
+    public class EventNearResult : IHasResponseStatus
+    {
+        public EventNearResult()
+        {
+            this.Event = Event;
+        }
+
+        [DataMember]
+        public List<Event> Event { get; set; }
 
         [DataMember]
         public ResponseStatus ResponseStatus { get; set; }

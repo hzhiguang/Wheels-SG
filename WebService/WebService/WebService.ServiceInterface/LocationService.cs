@@ -18,7 +18,7 @@ namespace WebService.ServiceInterface
         }
 
         //Insert 1 location object
-        public CreateLocationResult Post(CreateLocation request)
+        public CreateLocationResult GET(CreateLocation request)
         {
             Db.ExecuteSql("INSERT INTO location (address, x, y, geom) Values ('" + request.address + "','" + request.x + "','" + request.y + "', ST_GeomFromText('POINT(" + request.x + " " + request.y + ")', 3414))");
             long id = Db.GetLastInsertId();

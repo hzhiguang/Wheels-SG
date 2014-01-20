@@ -16,7 +16,7 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
-    [Route("/json/createLocation", "POST")]
+    [Route("/json/createLocation", "GET")]
     public class CreateLocation
     {
         [DataMember]
