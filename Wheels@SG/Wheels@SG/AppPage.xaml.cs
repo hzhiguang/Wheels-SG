@@ -17,6 +17,8 @@ using System.Threading;
 using ESRI.ArcGIS.Client.Geometry;
 using ESRI.ArcGIS.Client;
 using ESRI.ArcGIS.Client.Tasks;
+using ESRI.ArcGIS.Client.Symbols;
+using System.Windows.Media.Imaging;
 
 namespace Wheels_SG
 {
@@ -56,23 +58,66 @@ namespace Wheels_SG
             api.convertLatLng(input, mappoint =>
             {
                 map = mappoint;
-                GraphicsLayer graphicsLayer = esriMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-                Graphic graphic = new ESRI.ArcGIS.Client.Graphic()
-                {
-                    Geometry = map,
-                    Symbol = LayoutRoot.Resources["DefaultMarkerSymbol"] as ESRI.ArcGIS.Client.Symbols.Symbol,
-                };
-                graphic.SetZIndex(1);
-                graphicsLayer.Graphics.Add(graphic);
+                GraphicsLayer graphicsLayer = esriMap.Layers["BufferLayer"] as GraphicsLayer;
+                drawBufferCircle(1000, 40, map, graphicsLayer);
             });
 
-            api.RetrieveNearbyEvents(e.Position.Location.Latitude, e.Position.Location.Longitude, 0.01, (List<Event> events) =>
+            api.RetrieveNearbyEvents(e.Position.Location.Latitude, e.Position.Location.Longitude, 0.1, (List<Event> events) =>
             {
                 for (int i = 0; i < events.Count - 1; i++)
                 {
-                    
+                    api.RetrieveLocations((List<Model.Location> locs) =>
+                    {
+                        GraphicsLayer gl = esriMap.Layers["PinLayout"] as GraphicsLayer;
+                        for (int a = 0; a < locs.Count - 1; a++)
+                        {
+                            if (locs.ElementAt(a).id == events.ElementAt(i).locationid)
+                            {
+                                LatLng pin = new LatLng(locs.ElementAt(a).x, locs.ElementAt(a).y);
+                                MapPoint mp = new MapPoint();
+                                api.convertLatLng(pin, mappoint =>
+                                {
+                                    mp = mappoint;
+                                    PictureMarkerSymbol ps = new PictureMarkerSymbol();
+                                    ps.Source = new BitmapImage(new Uri("Picture/pin.png", UriKind.Relative));
+                                    Graphic graphic = new Graphic()
+                                    {
+                                        Geometry = mp,
+                                        Symbol = ps,
+                                    };
+                                    gl.Graphics.Add(graphic);
+                                });
+                            }
+                        }
+                    });
                 }
             });
+        }
+
+        public void drawBufferCircle(double radius, int pointCount, MapPoint currentPoint, GraphicsLayer gl)
+        {
+            MapPoint point = currentPoint;
+            var pl = new ESRI.ArcGIS.Client.Geometry.Polyline();
+            var polygon = new ESRI.ArcGIS.Client.Geometry.Polygon();
+            var routePoint = new ESRI.ArcGIS.Client.Geometry.PointCollection();
+            for (int i = 1; i <= pointCount; i++)
+            {
+                double x;
+                double y;
+                x = (point.X + radius * Math.Cos(2 * Math.PI / pointCount * i));
+                y = (point.Y + radius * Math.Sin(2 * Math.PI / pointCount * i));
+                routePoint.Add(new MapPoint(x, y));
+            }
+            routePoint.Add(routePoint[0]);
+            polygon.Rings.Add(routePoint);
+            GraphicsLayer mygraphicslayer = gl;
+            mygraphicslayer.ClearGraphics();
+            Graphic graphic = new Graphic()
+            {
+                Geometry = polygon,
+                Symbol = LayoutRoot.Resources["DefaultBufferSymbol"] as ESRI.ArcGIS.Client.Symbols.Symbol,
+            };
+            mygraphicslayer.Graphics.Add(graphic);
         }
 
         void geoWatcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
@@ -177,6 +222,7 @@ namespace Wheels_SG
                 api.CreateEvent(eve, (List<Event> eves) =>
                 {
                     MessageBox.Show("Event Successfully Created");
+                    createEvent.IsOpen = false;
                 });
             });
         }

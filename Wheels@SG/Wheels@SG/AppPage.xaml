@@ -49,6 +49,8 @@
                         Url="http://www.onemap.sg/ArcGIS/rest/services/basemap/MapServer" />
                     <esriDS:GpsLayer x:Name="myGpsLayer" GeometryServiceUrl="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer" />
                     <esri:GraphicsLayer ID="MyGraphicsLayer" MouseLeftButtonDown="GraphicsLayer_MouseLeftButtonDown"/>
+                    <esri:GraphicsLayer ID="PinLayout" />
+                    <esri:GraphicsLayer ID="BufferLayer" />
                 </esri:Map.Layers>
             </esri:Map>
             <Button Content="+" Height="72" HorizontalAlignment="Left" Margin="381,27,0,0" x:Name="button1" VerticalAlignment="Top" Width="69" Click="button1_Click" Background="#AD000000" />

@@ -37,7 +37,7 @@ namespace WebService.ServiceModel.Operations
     }
 
     [DataContract]
-    [Route("/json/location/{id}")]
+    [Route("/json/location/id")]
     public class GetLocationDetails
     {
         [DataMember]
